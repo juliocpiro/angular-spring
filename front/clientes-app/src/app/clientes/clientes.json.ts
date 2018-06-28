@@ -3,7 +3,7 @@ import {Cliente} from './cliente';
 export const CLIENTES : Cliente[] = [
   {id:1,nombre:'Julio',apellido:'Piro',email:'jpiro@gmail.com',createAt:'2017-12-11'},
   {id:2,nombre:'Adriana',apellido:'Piro',email:'apiro@gmail.com',createAt:'2017-12-10'},
-  {id:3,nombre:'Margarita',apellido:'Gonzales',email:'@gmail.com',createAt:'2017-12-09'},
+  {id:3,nombre:'Margarita',apellido:'Gonzales',email:'margarita@gmail.com',createAt:'2017-12-09'},
   {id:4,nombre:'Dafne',apellido:'Piro',email:'dpiro@gmail.com',createAt:'2017-12-08'},
   {id:5,nombre:'Airton',apellido:'Piro',email:'apiro@gmail.com',createAt:'2017-12-07'},
   {id:6,nombre:'Diana',apellido:'Medrano',email:'dmedrano@gmail.com',createAt:'2017-12-06'},

@@ -10,3 +10,10 @@ INSERT INTO clientes (nombre,apellido,email,create_at) VALUES('Dr. James','Gosli
 INSERT INTO clientes (nombre,apellido,email,create_at) VALUES('Magma','Lee','magma@gmd.com.pe','2018-01-10');
 INSERT INTO clientes (nombre,apellido,email,create_at) VALUES('Tornado','Roe','troe@gmd.com.pe','2018-01-11');
 INSERT INTO clientes (nombre,apellido,email,create_at) VALUES('Jade','Dore','jdore@gmd.com.pe','2018-01-12');
+
+INSERT INTO users (username, password, enabled) VALUES('andres', '$2a$10$bNfJhEdQx22Z3shr92cH.eEZeuiFh1EU2e6kzV6CkTL92TbKF.ViK', 1);
+INSERT INTO users (username, password, enabled) VALUES('admin', '$2a$10$dqcB8DAj6uxXfI2X3wuUfOWymzJA8CI41p.b2vQqiJAo0.lbARACu', 1);
+
+INSERT INTO authorities (user_id, authority) VALUES (1,'ROLE_USER');
+INSERT INTO authorities (user_id, authority) VALUES (2,'ROLE_USER');
+INSERT INTO authorities (user_id, authority) VALUES (2,'ROLE_ADMIN');

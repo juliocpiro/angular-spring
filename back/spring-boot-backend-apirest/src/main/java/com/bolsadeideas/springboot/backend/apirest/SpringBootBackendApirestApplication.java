@@ -14,7 +14,6 @@ public class SpringBootBackendApirestApplication implements CommandLineRunner{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootBackendApirestApplication.class, args);
-	
 	}
 	
 	@Override
@@ -25,4 +24,5 @@ public class SpringBootBackendApirestApplication implements CommandLineRunner{
 			System.out.println(bcryptPassword);
 		}
 	}
+	
 }

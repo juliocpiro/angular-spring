@@ -39,7 +39,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
-
+		System.out.println("entrando filtro JWTAuthenticationFilter");
+		
 		String username = obtainUsername(request);
 		String password = obtainPassword(request);
 

@@ -24,7 +24,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JWTServiceImpl implements JWTService {
 	
 	public static final String SECRET = Base64Utils.encodeToString("Alguna.Clave.Secreta.123456".getBytes());
-	public static final long EXPIRATION_DATE = 120000L;
+	public static final long EXPIRATION_DATE = 3600000L;//3600000 = 1hr
 	public static final String TOKEN_PREFIX = "Bearer ";
 	public static final String HEADER_STRING = "Authorization";
 
@@ -43,7 +43,6 @@ public class JWTServiceImpl implements JWTService {
 				.setSubject(username)
 				.signWith(SignatureAlgorithm.HS512, SECRET.getBytes())
 				.setIssuedAt(new Date())
-				//.setExpiration(new Date(System.currentTimeMillis() + (3600000*4)))
 				.setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_DATE))
 				.compact();
 		

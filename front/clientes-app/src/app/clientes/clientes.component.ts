@@ -17,9 +17,6 @@ export class ClientesComponent implements OnInit {
     this.clienteService.getClientes().subscribe(
       clientes => this.clientes = clientes
       //(clientes) => {this.clientes = clientes}
-      //function (clientes){
-      //  this.clientes = clientes;
-      //}
     );
   }
 

@@ -22,7 +22,8 @@ const routes : Routes = [
   {path : '', redirectTo: '/login', pathMatch: 'full'},
   {path : 'login', component : LoginComponent},
   {path : 'directivas', component : DirectivaComponent, canActivate:[AuthGuard]},
-  {path : 'clientes', component : ClientesComponent, canActivate:[AuthGuard]}
+  {path : 'clientes', component : ClientesComponent, canActivate:[AuthGuard]},
+  {path : 'clientes/form/:id', component : FormComponent}
 ];
 
 @NgModule({

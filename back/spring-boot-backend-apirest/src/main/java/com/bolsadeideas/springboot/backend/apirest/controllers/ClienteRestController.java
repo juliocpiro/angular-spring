@@ -29,24 +29,27 @@ public class ClienteRestController {
 	
 	@GetMapping("/clientes")
 	public List<Cliente> index(){
-		System.out.println("GET");
+		System.out.println("Listar clientes - GET");
 		return clienteService.findAll();
 	}
 	
 	@GetMapping("/clientes/{id}")
 	public Cliente show(@PathVariable Long id) {
+		System.out.println("Listar cliente - GET");
 		return clienteService.findById(id);
 	}
 	
 	@PostMapping("/clientes")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente create(@RequestBody Cliente cliente) {
+		System.out.println("Crear clientes - POST");
 		return clienteService.save(cliente);
 	}
 	
 	@PutMapping("/clientes/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente update(@RequestBody Cliente cliente, @PathVariable Long id) {
+		System.out.println("Actualizar cliente - PUT");
 		Cliente clienteActual = clienteService.findById(id);
 		clienteActual.setApellido(cliente.getApellido());
 		clienteActual.setNombre(cliente.getNombre());
@@ -57,6 +60,7 @@ public class ClienteRestController {
 	@DeleteMapping("/clientes/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
+		System.out.println("Eliminar cliente - DELETE");
 		clienteService.delete(id);
 	}
 }

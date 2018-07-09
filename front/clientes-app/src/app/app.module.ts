@@ -2,20 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteService } from './clientes/cliente.service';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './clientes/form.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './login/auth.service';
+import { AuthGuard } from './login/auth.guard';
+import { TokenInterceptorService } from './login/token-interceptor.service'
+
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from "@angular/forms";
 
 const routes : Routes = [
-  {path : '', redirectTo: '/clientes', pathMatch: 'full'},
-  {path : 'directivas', component : DirectivaComponent},
-  {path : 'clientes', component : ClientesComponent}
+  {path : '', redirectTo: '/login', pathMatch: 'full'},
+  {path : 'login', component : LoginComponent},
+  {path : 'directivas', component : DirectivaComponent, canActivate:[AuthGuard]},
+  {path : 'clientes', component : ClientesComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
@@ -25,7 +32,8 @@ const routes : Routes = [
     FooterComponent,
     DirectivaComponent,
     ClientesComponent,
-    FormComponent
+    FormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,14 @@ const routes : Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    ClienteService
+    ClienteService,
+    AuthService,
+    AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

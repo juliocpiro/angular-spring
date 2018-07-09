@@ -16,6 +16,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.bolsadeideas.springboot.backend.apirest.auth.service.JWTService;
 import com.bolsadeideas.springboot.backend.apirest.auth.service.JWTServiceImpl;
